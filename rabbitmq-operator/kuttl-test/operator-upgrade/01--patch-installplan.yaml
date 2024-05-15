@@ -1,0 +1,6 @@
+# as we set installPlanApproval to Manual it needed to be approved.
+
+apiVersion: kuttl.dev/v1beta1
+kind: TestStep
+scripts:
+  - command: installplan_name=$(kubectl get installplans -n kuttl-test -o jsonpath='{.items[0].metadata.name}') && kubectl patch installplan $installplan_name -n kuttl-test --type merge -p '{"spec":{"approved":true}}'
