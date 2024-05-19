@@ -1,0 +1,9 @@
+apiVersion: kuttl.dev/v1beta1
+kind: TestStep
+apply:
+- manifests/01-kafka.yaml
+- manifests/02-kafkaconnect.yaml
+- manifests/03-kafkatopic.yaml
+- manifests/04-kafkauser.yaml
+- manifests/05-kafkaconnector.yaml
+- manifests/06-strimzipodset.yaml

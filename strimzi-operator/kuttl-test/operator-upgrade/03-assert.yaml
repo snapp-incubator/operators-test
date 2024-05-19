@@ -1,0 +1,7 @@
+# watch if previous manifests are fine
+apiVersion: kafka.strimzi.io/v1beta2
+kind: Kafka
+metadata:
+  name: current-cluster
+status:
+  readyReplicas: 1
