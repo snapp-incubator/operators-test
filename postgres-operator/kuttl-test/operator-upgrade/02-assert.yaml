@@ -2,7 +2,7 @@ apiVersion: postgres-operator.crunchydata.com/v1beta1
 kind: PostgresCluster
 metadata:
   name: cluster-start
-  namespace: kuttl-test
+  namespace: kuttl-test-postgres
 status:
   instances:
     - name: instance1
@@ -23,4 +23,4 @@ apiVersion: v1
 kind: Service
 metadata:
   name: cluster-start-primary
-  namespace: kuttl-test
+  namespace: kuttl-test-postgres

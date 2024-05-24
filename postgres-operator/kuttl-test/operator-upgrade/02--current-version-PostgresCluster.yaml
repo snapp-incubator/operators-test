@@ -2,8 +2,19 @@ apiVersion: postgres-operator.crunchydata.com/v1beta1
 kind: PostgresCluster
 metadata:
   name: cluster-start
-  namespace: kuttl-test
+  namespace: kuttl-test-postgres
 spec:
+  backups:
+    pgbackrest:
+      repos:
+        - name: repo1
+          volume:
+            volumeClaimSpec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 1Gi
   instances:
     - dataVolumeClaimSpec:
         accessModes:
