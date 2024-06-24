@@ -1,0 +1,7 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgo
+  namespace: kuttl-test-postgres
+status:
+  availableReplicas: 1

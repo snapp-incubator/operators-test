@@ -1,0 +1,28 @@
+# To install already provided version of operator we need
+# a test namespace and related og and sub resources in that ns.
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kuttl-test-postgres
+---
+
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: global-operators
+  namespace: kuttl-test-postgres
+---
+
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: postgresql
+  namespace: kuttl-test-postgres
+spec:
+  channel: v5
+  installPlanApproval: Manual
+  name: postgresql
+  source: operatorhubio-catalog
+  sourceNamespace: openshift-marketplace
+  startingCSV: postgresoperator.v5.3.0  # change in case of difference
