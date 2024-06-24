@@ -1,0 +1,23 @@
+apiVersion: core.strimzi.io/v1beta2
+kind: StrimziPodSet
+metadata:
+  name: strimzi-pod-set-example
+spec:
+  pods:
+    - apiVersion: v1
+      kind: Pod
+      metadata:
+        labels:
+          app: strimzi-pod-set-example
+        name: example-pod
+      spec:
+        containers:
+          - command:
+              - sleep
+              - 3600
+            image: 'busybox:latest'
+            imagePullPolicy: IfNotPresent
+            name: busybox
+  selector:
+    matchLabels:
+      app: strimzi-pod-set-example
